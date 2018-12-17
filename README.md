@@ -1,4 +1,6 @@
-# router3-hemuppgift
+# movie-list
+Trying out Vue, Vuex, Vue CLI and Vue Router together by creating a personal list of movies.
+Also included some basic Firebase features.
 
 ## Project setup
 ```
