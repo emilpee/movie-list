@@ -1,7 +1,7 @@
 <template>
   <div class="category">
         <router-link to="/home"> <button> &#8592; Filmlist</button> </router-link>
-        <div v-for="movie in movie" :key="movie.category">
+        <div v-for="movie in movie" :key="movie.category" class="item">
             <router-link :to="{ name:'name', params: { name: movie.name } }"> 
               <h3> {{movie.name}} </h3> 
             </router-link>
@@ -32,7 +32,7 @@ export default {
     margin: 0 auto;
     border: 10px groove gray;
     background-color: rgb(234, 200, 241);
-    height: 650px;
+    height: 100%;
 }
 h3 {
   margin: 40px 0 0;
@@ -63,5 +63,8 @@ button {
   color: #42b983;
   position: sticky;
   margin-right: 100%;
+}
+.item {
+  padding-bottom: 2%;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
     <div class="login">
-      <h3>Please log in to see your film list!</h3>
+      <h3>Please log in to see my film list!</h3>
       <input type="text" v-model="email" placeholder="Email"><br>
-      <input type="password" v-model="password" placeholder="Password"><br>
+      <input type="password" v-model="password" placeholder="Password" @keyup.enter="login"><br>
       <span> 
         <strong> {{ errorMsg }} </strong> 
       </span> 

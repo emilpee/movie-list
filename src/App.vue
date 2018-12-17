@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/home">Hej</router-link>
-    </div>
     <transition name="fade">
       <router-view/>
     </transition>
@@ -11,7 +8,7 @@
 
 <style>
 body {
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(238, 238, 238);
 }
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;
@@ -33,7 +30,7 @@ body {
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
+  padding: 10px;
 }
 
 #nav a {

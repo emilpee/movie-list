@@ -8,7 +8,8 @@ import SignUp from './views/SignUp.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history', // ta bort hashtags
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes: [
     {
       path: '/home',

@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="movielist" v-for="movie in movies" :key="movie.id">
-      <h2> {{ movie.name }} </h2>
+      <router-link :to="{ name:'name', params: { name: movie.name } }"> 
+        <h2> {{ movie.name }} </h2> 
+      </router-link>
       <ul>
         <li><strong>Director:</strong> {{ movie.director }}</li>
         <li><strong>Year:</strong> {{ movie.year }}</li>
@@ -11,16 +13,26 @@
         </li>
       </ul>
     </div>
+    <button @click="logout" type="button">Log out</button>
   </div>
 </template>
 
 <script>
+import {fb} from '../../firebase-config';
+
 export default {
   name: 'MovieList',
   computed: {
     movies() {
       return this.$store.state.movies;
     }
+  },
+  methods: {
+    logout: function() {
+      fb.auth().signOut().then(() => {
+      this.$router.replace('login')
+      })
+    }  
   }
 }
 </script>
@@ -51,5 +63,12 @@ li {
 }
 a {
   color: #42b983;
+}
+button {
+  font-size: 15px;
+  padding: 20px;
+  margin-top: 1%;
+  color: white;
+  background-color: #42b983;
 }
 </style>

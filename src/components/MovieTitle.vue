@@ -1,17 +1,20 @@
 <template>
   <div class="movie">
         <div v-for="movie in movies" :key="movie.name">
-           <router-link :to="{ name: 'category', params: {category:movie.category} }"> 
-             <button> &#8592; {{ movie.category }}</button> 
-          </router-link>
+           <router-link to="/home"> <button> &#8592; Filmlist</button> </router-link>
             <h1> {{ movie.name }} </h1>
             <h3> {{ movie.year }} </h3>
             <ul>
               <li> <strong>Director:</strong> {{ movie.director }} </li>
               <li> <strong>Actors:</strong> {{ movie.actors.join(', ') }} </li>
             </ul>
-            <img :src="movie.image" :alt="movie.image" />
+            <br>
+            <img :src="movie.image" :alt="movie.image" /> 
             <p id="desc"> {{ movie.description }} </p>
+            <router-link :to="{ name: 'category', params: {category:movie.category} }"> 
+              <p>View all <a>{{ movie.category.toLowerCase() }}s</a></p> 
+            </router-link>
+            <br>
         </div>
     <router-view></router-view>
   </div>
@@ -38,7 +41,7 @@ export default {
     margin: 0 auto;
     border: 10px groove gray;
     background-color: rgb(234, 200, 241);
-    height: 650px;
+    height: 100%;
 }
 h3 {
   margin: 40px 0 0;
@@ -58,18 +61,14 @@ a {
 img {
     width: 200px;
     border: 2px groove gray;
-    float: left;
-    margin-right: 20px;
-    margin-left: 40px;
-    margin-top: 15px;
     padding: 1%;
 }
 #desc {
-    padding: 2%;
-    text-align: left;
+    margin: 2%;
+    padding: 3%;
+    text-align: center;
     font-weight: bold;
     font-size: 18px;
-    width: 700px;
 }
 button {
   padding: 25px;
