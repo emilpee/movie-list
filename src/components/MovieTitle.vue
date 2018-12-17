@@ -2,7 +2,7 @@
   <div class="movie">
         <div v-for="movie in movies" :key="movie.name">
            <router-link :to="{ name: 'category', params: {category:movie.category} }"> 
-             <button> &#8592; Back to {{movie.category}}s</button> 
+             <button> &#8592; {{ movie.category }}</button> 
           </router-link>
             <h1> {{ movie.name }} </h1>
             <h3> {{ movie.year }} </h3>
@@ -76,7 +76,7 @@ button {
   font-size: 18px;
   background-color: white;
   color: #42b983;
-  position: relative;
-  margin-left: -600px;
+  position: sticky;
+  margin-right: 100%;
 }
 </style>

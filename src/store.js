@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     movies: [
       {
@@ -59,3 +59,5 @@ export default new Vuex.Store({
 
   }
 })
+
+export default store;

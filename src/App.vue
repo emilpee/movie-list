@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Filmlista</router-link>
+      <router-link to="/home">Hej</router-link>
     </div>
     <transition name="fade">
       <router-view/>
@@ -10,6 +10,9 @@
 </template>
 
 <style>
+body {
+  background-color: rgb(224, 224, 224);
+}
 .fade-enter-active, .fade-leave-active {
   transition-property: opacity;
   transition-duration: .25s;
@@ -23,7 +26,7 @@
   opacity: 0
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Verdana', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

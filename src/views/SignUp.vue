@@ -1,48 +1,50 @@
 <template>
-    <div class="login">
-      <h3>Please log in to see your film list!</h3>
+    <div class="sign-up">
+      <h3>Create a new account!</h3>
       <input type="text" v-model="email" placeholder="Email"><br>
       <input type="password" v-model="password" placeholder="Password"><br>
       <span> 
         <strong> {{ errorMsg }} </strong> 
       </span> 
       <br>
-      <button @click="login">Log in</button>
-      <p>Or <router-link to="/sign-up">sign up</router-link> for an account.</p>
+      <button @click="signUp">Sign Up</button>
+      <p>Already have an account? <br>
+       Go back to <router-link to="/login">login</router-link>.
+      </p>
     </div>
 </template>
- 
 
 <script>
 import {fb} from '../../firebase-config'
 
 export default {
-  name: 'login',
+  name: 'signUp',
   data() {
     return {
-      email: '',
-      password: '',
-      errorMsg: ''
+        email: '',
+        password: '',
+        errorMsg: ''
     };
   },
   methods: {
-    login: function() {
-      fb.auth().signInWithEmailAndPassword(this.email, this.password).then(
+    signUp() {
+      fb.auth().createUserWithEmailAndPassword(this.email, this.password).then(
         (user) => {
-          this.$router.replace('home')
+            this.$router.replace('home')
         },
         (err) => {
-          this.errorMsg = 'Oops! ' + err.message;
+            this.errorMsg = 'Sign up failed: ' + err.message
         }
       );
-    },
+    }
   }
 }
 </script>
 
 <style scoped>
-.login {
+.sign-up {
   padding: 1%;
+  color: rgb(37, 34, 34);
 }
 input {
   margin: 8px 0;
@@ -55,19 +57,16 @@ button {
   padding: 5px;
   cursor: pointer;
 }
-p {
-  margin-top: 40px;
-  font-size: 13px;
-}
-a {
-  color: rgb(255, 67, 67);
-}
-p a {
-  text-decoration: underline;
-  cursor: pointer;
-}
 span {
     color: rgb(219, 9, 9);
     font-weight: bold;
+}
+p {
+    font-size: 13px;
+    margin-top: 40px;
+    line-height: 1.6em;
+}
+a {
+  color: rgb(255, 67, 67);
 }
 </style>
